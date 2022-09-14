@@ -29,6 +29,7 @@ class Oportunidades:
     
     def ListarVagas(self):
         self.__cursor.execute("SELECT * FROM vagas")
+        self.__cursor.commit()
     
     def CadastrarVagas(self, titulo, salario, dataCriacao, nomeEmpresa, nomeCargo, descricao, status):
         self.titulo = titulo
@@ -40,15 +41,23 @@ class Oportunidades:
         self.status = status
         
         self.__cursor.execute(f"INSERT INTO nome_tabela (titulo, salario, data_criacao, nome_empresa, nome_cargo, descricao, status) VALUES ('{self.titulo}', '{self.salario}', '{self.dataCriacao}', '{self.nomeEmpresa}', '{self.NomeCargo}', '{self.descricao}', '{self.status}')")
+        self.__cursor.commit()
     
     def AlterarVagas(self, titulo, id):
         self.titulo = titulo
         self.id = id
         self.__cursor.execute(f"UPDATE vagas SET titulo='{self.titulo}' WHERE id='{self.id}'")
+        self.__cursor.commit()
     
     def DeletarVagas(self, id):
         self.id = id
         self.__cursor.execute(f"DELETE FROM vagas WHERE id='{self.id}'")
+        self.__cursor.commit()
 
 if __name__=="__main__":
     op = Oportunidades()
+    op.Connexao()
+    op.ListarVagas()
+    op.CadastrarVagas()
+    op.AlterarVagas()
+    op.DeletarVagas()
