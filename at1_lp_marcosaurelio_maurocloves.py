@@ -1,5 +1,5 @@
 #Aluno(a): Marcos Aurélio Lopes de Araújo, Mauro Cloves
-#Professor: Clovis Rocha
+#Professor: Cloves Rocha
 #Disciplina: Lógica de Programação
 #Data: 14/09/2022
 
